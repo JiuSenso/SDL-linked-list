@@ -92,7 +92,7 @@ bool drawLinkedList(ListHead* head, nodeColor color){
 	SDL_RenderClear(rend);
 	SDL_RenderCopy(rend, background_texture, NULL, NULL);
 	for (int i=0; i<head->size; i++) {	
-		switch color{
+		switch (color){
 			case RED : node_texture = red_texture;
 			case GREEN : node_texture = green_texture;
 			case GREY : node_texture = grey_texture;

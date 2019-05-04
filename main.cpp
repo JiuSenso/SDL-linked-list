@@ -5,6 +5,7 @@ with a simple gui.
 
 #include "gui.hpp"
 #include "linked_list.h"
+#include <assert.h>
 
 bool running;
 
@@ -65,22 +66,22 @@ int main(int argc, char *argv[]) {
   	ListHead head;
  	List_init(&head);
   	for (int i=0; i<5; ++i){
-    	IntListItem* new_element= (IntListItem*)
-      	malloc(sizeof(IntListItem));
+    	ListItem* new_element= (ListItem*)
+      	malloc(sizeof(ListItem));
     	if (! new_element) {
       		printf("out of memory\n");
       		break;
     	}
-    	new_element->list.prev=0;
-    	new_element->list.next=0;
-    	new_element->info=i;
+    	new_element->prev=0;
+    	new_element->next=0;
+    	//new_element->info=i;
     	ListItem* result = List_insert(&head, head.last, (ListItem*)new_element);
     	assert(result);
  	}
 
 
     // draw linked list nodes
-	drawLinkedList(head, RED);
+	drawNode(head, RED);
 
 
 	running = true;
